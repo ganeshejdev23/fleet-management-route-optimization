@@ -108,3 +108,20 @@ Successfully retrieved route information between Hyderabad and Bangalore.
 ### Result
 
 External routing integration completed successfully.
+
+## Week 2 - Day 2 Completed
+
+### Route Optimization Workflow
+
+- Created RouteRequestDto
+- Created OptimizedRouteResponseDto
+- Implemented optimization service workflow
+- Created POST /optimize/sequence API
+
+### Testing
+
+Successfully tested route optimization endpoint using Swagger.
+
+### Result
+
+Optimization request-response framework established successfully.
