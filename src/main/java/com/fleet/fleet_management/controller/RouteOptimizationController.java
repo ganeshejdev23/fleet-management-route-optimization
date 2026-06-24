@@ -1,6 +1,9 @@
 package com.fleet.fleet_management.controller;
 
 import com.fleet.fleet_management.service.RouteOptimizationService;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 import com.fleet.fleet_management.dto.RouteRequestDto;
 import com.fleet.fleet_management.dto.OptimizedRouteResponseDto;
@@ -33,5 +36,11 @@ public class RouteOptimizationController {
 			@RequestParam double endLat) {
 
 		return service.getRouteData(startLon, startLat, endLon, endLat);
+	}
+
+	@GetMapping("/nearest")
+	public List<String> nearestRoute() {
+
+		return service.optimizeNearestRoute();
 	}
 }

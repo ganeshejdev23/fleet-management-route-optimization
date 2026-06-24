@@ -125,3 +125,16 @@ Successfully tested route optimization endpoint using Swagger.
 ### Result
 
 Optimization request-response framework established successfully.
+
+## Week 2 - Day 3 Completed
+
+### Greedy Route Optimization
+
+- Created LocationDto
+- Implemented Nearest Neighbor Algorithm
+- Implemented Distance Calculation Logic
+- Added GET /optimize/nearest endpoint
+
+### Result
+
+Successfully generated optimized delivery sequences using a greedy routing approach.
