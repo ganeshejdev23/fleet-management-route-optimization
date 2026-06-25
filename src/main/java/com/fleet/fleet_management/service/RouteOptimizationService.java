@@ -1,11 +1,13 @@
 package com.fleet.fleet_management.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
 import com.fleet.fleet_management.dto.LocationDto;
+import com.fleet.fleet_management.dto.RouteSummaryDto;
 
 @Service
 public class RouteOptimizationService {
@@ -87,5 +89,12 @@ public class RouteOptimizationService {
 		double lon = a.getLongitude() - b.getLongitude();
 
 		return Math.sqrt(lat * lat + lon * lon);
+	}
+
+	public RouteSummaryDto generateRouteSummary() {
+
+		List<String> route = optimizeNearestRoute();
+
+		return new RouteSummaryDto(route, route.size(), route.get(0), route.get(route.size() - 1));
 	}
 }

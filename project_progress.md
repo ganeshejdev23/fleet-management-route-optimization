@@ -130,11 +130,41 @@ Optimization request-response framework established successfully.
 
 ### Greedy Route Optimization
 
+Implemented a Greedy Nearest Neighbor algorithm to generate an optimized delivery sequence.
+
+### Features
+
 - Created LocationDto
-- Implemented Nearest Neighbor Algorithm
-- Implemented Distance Calculation Logic
-- Added GET /optimize/nearest endpoint
+- Implemented distance calculation logic
+- Developed nearest-neighbor optimization algorithm
+- Added GET /optimize/nearest API
+- Successfully tested using Swagger
 
-### Result
+### Outcome
 
-Successfully generated optimized delivery sequences using a greedy routing approach.
+The system can now generate an optimized delivery sequence based on the nearest available location, providing the foundation for route optimization.
+
+## Week 2 - Day 4 Completed
+
+### Route Summary Module
+
+Implemented a Route Summary API to provide additional route information for dispatcher dashboards.
+
+### Features
+
+- Created RouteSummaryDto
+- Added route summary generation
+- Implemented GET /optimize/summary endpoint
+- Included:
+  - Optimized Route
+  - Total Stops
+  - Starting Point
+  - Ending Point
+
+### Testing
+
+Successfully verified the API through Swagger.
+
+### Outcome
+
+Enhanced the Route Optimization Engine with route summary details, making it suitable for frontend integration and dispatcher reporting.

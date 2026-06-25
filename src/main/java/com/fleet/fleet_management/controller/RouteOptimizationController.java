@@ -1,12 +1,18 @@
 package com.fleet.fleet_management.controller;
 
-import com.fleet.fleet_management.service.RouteOptimizationService;
-
 import java.util.List;
 
-import org.springframework.web.bind.annotation.*;
-import com.fleet.fleet_management.dto.RouteRequestDto;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.fleet.fleet_management.dto.OptimizedRouteResponseDto;
+import com.fleet.fleet_management.dto.RouteRequestDto;
+import com.fleet.fleet_management.dto.RouteSummaryDto;
+import com.fleet.fleet_management.service.RouteOptimizationService;
 
 @RestController
 @RequestMapping("/optimize")
@@ -42,5 +48,11 @@ public class RouteOptimizationController {
 	public List<String> nearestRoute() {
 
 		return service.optimizeNearestRoute();
+	}
+
+	@GetMapping("/summary")
+	public RouteSummaryDto getRouteSummary() {
+
+		return service.generateRouteSummary();
 	}
 }
