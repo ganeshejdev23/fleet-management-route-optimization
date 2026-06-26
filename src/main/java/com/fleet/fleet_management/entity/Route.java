@@ -10,6 +10,8 @@ public class Route {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String routeName;
+
 	private String startPoint;
 
 	private String endPoint;
@@ -17,6 +19,24 @@ public class Route {
 	private Double totalDistance;
 
 	private Double estimatedTime;
+
+	private String routeStatus;
+
+	public String getRouteName() {
+		return routeName;
+	}
+
+	public void setRouteName(String routeName) {
+		this.routeName = routeName;
+	}
+
+	public String getRouteStatus() {
+		return routeStatus;
+	}
+
+	public void setRouteStatus(String routeStatus) {
+		this.routeStatus = routeStatus;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "vehicle_id")

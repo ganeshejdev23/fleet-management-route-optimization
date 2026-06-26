@@ -168,3 +168,59 @@ Successfully verified the API through Swagger.
 ### Outcome
 
 Enhanced the Route Optimization Engine with route summary details, making it suitable for frontend integration and dispatcher reporting.
+
+## Week 2 - Day 5 Completed
+
+### Fleet Integration
+
+Implemented route assignment workflow by integrating optimized routes with fleet vehicles.
+
+### Features
+
+- Added Route Assignment API
+- Added Route Status
+- Linked Vehicle with Route
+- Created Dispatcher Summary DTO
+
+### Outcome
+
+Completed Week 2 by connecting route optimization with fleet management workflow.
+
+# Week 2 Progress Summary
+
+## External API Integration
+
+Integrated the Open Source Routing Machine (OSRM) API using Spring RestTemplate to retrieve routing information between delivery locations.
+
+## Route Optimization
+
+Implemented a Greedy Nearest Neighbor algorithm to generate optimized delivery sequences.
+
+## Route Summary
+
+Developed APIs to return optimized routes along with summary details including total stops, starting location, and destination.
+
+## Fleet Integration
+
+Integrated optimized routes with fleet entities by assigning routes to vehicles and linking vehicles with drivers.
+
+## Testing
+
+Successfully tested all APIs using Swagger OpenAPI.
+
+### Week 2 Deliverables
+
+- RestTemplate Integration
+- OSRM API Integration
+- Route Optimization Service
+- Greedy Optimization Algorithm
+- Route Summary API
+- Vehicle Assignment
+- Driver Assignment
+- Route Assignment
+- Swagger Testing
+- Database Persistence
+
+### Outcome
+
+Completed the Route Optimization Engine and integrated it with the Fleet Management module, enabling optimized route assignment to vehicles and drivers.

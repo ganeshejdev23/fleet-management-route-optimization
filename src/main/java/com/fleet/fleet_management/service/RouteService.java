@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.fleet.fleet_management.dto.DispatcherSummaryDto;
 import com.fleet.fleet_management.entity.Route;
 import com.fleet.fleet_management.repository.RouteRepository;
 
@@ -31,5 +32,23 @@ public class RouteService {
 
 	public void deleteRoute(Long id) {
 		routeRepository.deleteById(id);
+	}
+
+	public Route assignRoute(Route route) {
+
+		route.setRouteStatus("ASSIGNED");
+
+		return routeRepository.save(route);
+	}
+
+	public DispatcherSummaryDto getDispatcherSummary(Route route) {
+
+		return new DispatcherSummaryDto(
+
+				route.getAssignedVehicle().getVehicleNumber(),
+
+				route.getRouteName(),
+
+				route.getRouteStatus());
 	}
 }

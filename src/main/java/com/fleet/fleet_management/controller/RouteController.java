@@ -46,4 +46,10 @@ public class RouteController {
 
 		routeService.deleteRoute(id);
 	}
+
+	@PostMapping("/assign")
+	public Route assignRoute(@RequestBody Route route) {
+
+		return routeService.assignRoute(route);
+	}
 }
