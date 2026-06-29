@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.fleet.fleet_management.entity.DeliveryStatus;
 import com.fleet.fleet_management.entity.DeliveryTask;
 import com.fleet.fleet_management.repository.DeliveryTaskRepository;
 
@@ -32,5 +33,20 @@ public class DeliveryTaskService {
 
 	public void deleteTask(Long id) {
 		repository.deleteById(id);
+	}
+
+	// Dispatch Task
+	public DeliveryTask dispatchTask(Long id) {
+
+		DeliveryTask task = repository.findById(id).orElse(null);
+
+		if (task != null) {
+
+			task.setDeliveryStatus(DeliveryStatus.DISPATCHED);
+
+			return repository.save(task);
+		}
+
+		return null;
 	}
 }

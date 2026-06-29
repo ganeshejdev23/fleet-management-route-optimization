@@ -224,3 +224,24 @@ Successfully tested all APIs using Swagger OpenAPI.
 ### Outcome
 
 Completed the Route Optimization Engine and integrated it with the Fleet Management module, enabling optimized route assignment to vehicles and drivers.
+
+## Week 3 - Day 1 Completed
+
+### Dispatch Workflow
+
+Implemented the dispatch workflow by introducing the first delivery state transition.
+
+### Features
+
+- Added Dispatch API
+- Updated DeliveryStatus from UNASSIGNED to DISPATCHED
+- Integrated dispatch workflow with DeliveryTask entity
+- Verified Vehicle assignment during dispatch
+
+### Testing
+
+Successfully tested the Dispatch API using Swagger.
+
+### Result
+
+Delivery tasks can now move from UNASSIGNED to DISPATCHED.
