@@ -49,4 +49,36 @@ public class DeliveryTaskService {
 
 		return null;
 	}
+
+	// Mark In Transit
+
+	public DeliveryTask markInTransit(Long id) {
+
+		DeliveryTask task = repository.findById(id).orElse(null);
+
+		if (task != null) {
+
+			task.setDeliveryStatus(DeliveryStatus.IN_TRANSIT);
+
+			return repository.save(task);
+		}
+
+		return null;
+	}
+
+	// Mark Delivered
+
+	public DeliveryTask markDelivered(Long id) {
+
+		DeliveryTask task = repository.findById(id).orElse(null);
+
+		if (task != null) {
+
+			task.setDeliveryStatus(DeliveryStatus.DELIVERED);
+
+			return repository.save(task);
+		}
+
+		return null;
+	}
 }

@@ -245,3 +245,25 @@ Successfully tested the Dispatch API using Swagger.
 ### Result
 
 Delivery tasks can now move from UNASSIGNED to DISPATCHED.
+
+## Week 3 - Day 2 Completed
+
+### Delivery State Machine
+
+Implemented the remaining delivery state transitions.
+
+### Features
+
+- Added In Transit API
+- Added Delivered API
+- Updated DeliveryStatus from DISPATCHED → IN_TRANSIT
+- Updated DeliveryStatus from IN_TRANSIT → DELIVERED
+
+### Testing
+
+Successfully tested all delivery state transitions using Swagger.
+
+### Result
+
+The complete delivery lifecycle is now supported:
+UNASSIGNED → DISPATCHED → IN_TRANSIT → DELIVERED

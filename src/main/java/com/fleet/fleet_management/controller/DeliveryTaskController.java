@@ -54,4 +54,20 @@ public class DeliveryTaskController {
 
 		return service.dispatchTask(id);
 	}
+
+	// In Transit API
+
+	@PutMapping("/in-transit/{id}")
+	public DeliveryTask markInTransit(@PathVariable Long id) {
+
+		return service.markInTransit(id);
+	}
+
+	// Delivered API
+
+	@PutMapping("/deliver/{id}")
+	public DeliveryTask markDelivered(@PathVariable Long id) {
+
+		return service.markDelivered(id);
+	}
 }
