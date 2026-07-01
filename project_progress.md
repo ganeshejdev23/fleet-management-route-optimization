@@ -267,3 +267,24 @@ Successfully tested all delivery state transitions using Swagger.
 
 The complete delivery lifecycle is now supported:
 UNASSIGNED → DISPATCHED → IN_TRANSIT → DELIVERED
+
+## Week 3 - Day 3 Completed
+
+### Manifest Generation
+
+Implemented delivery manifest generation using a DTO.
+
+### Features
+
+- Created ManifestResponse DTO
+- Generated delivery manifest from DeliveryTask
+- Included vehicle information
+- Included driver information (if assigned)
+
+### Testing
+
+Successfully generated delivery manifests through Swagger.
+
+### Result
+
+Dispatchers can retrieve a complete delivery manifest for any delivery task.

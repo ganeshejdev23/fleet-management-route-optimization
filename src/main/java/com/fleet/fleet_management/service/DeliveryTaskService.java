@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.fleet.fleet_management.dto.ManifestResponse;
 import com.fleet.fleet_management.entity.DeliveryStatus;
 import com.fleet.fleet_management.entity.DeliveryTask;
 import com.fleet.fleet_management.repository.DeliveryTaskRepository;
@@ -80,5 +81,36 @@ public class DeliveryTaskService {
 		}
 
 		return null;
+	}
+
+	public ManifestResponse generateManifest(Long id) {
+
+		DeliveryTask task = repository.findById(id).orElse(null);
+
+		if (task == null) {
+			return null;
+		}
+
+		ManifestResponse response = new ManifestResponse();
+
+		response.setTaskId(task.getId());
+		response.setPickupLocation(task.getPickupLocation());
+		response.setDropLocation(task.getDropLocation());
+		response.setPriority(task.getPriority());
+		response.setDeliveryStatus(task.getDeliveryStatus().name());
+
+		if (task.getAssignedVehicle() != null) {
+
+			response.setVehicleNumber(task.getAssignedVehicle().getVehicleNumber());
+
+			response.setVehicleCapacity(task.getAssignedVehicle().getCapacity());
+
+			if (task.getAssignedVehicle().getAssignedDriver() != null) {
+
+				response.setDriverName(task.getAssignedVehicle().getAssignedDriver().getName());
+			}
+		}
+
+		return response;
 	}
 }

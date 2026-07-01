@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fleet.fleet_management.dto.ManifestResponse;
 import com.fleet.fleet_management.entity.DeliveryTask;
 import com.fleet.fleet_management.service.DeliveryTaskService;
 
@@ -40,6 +41,12 @@ public class DeliveryTaskController {
 	public DeliveryTask getTaskById(@PathVariable Long id) {
 
 		return service.getTaskById(id);
+	}
+
+	@GetMapping("/manifest/{id}")
+	public ManifestResponse generateManifest(@PathVariable Long id) {
+
+		return service.generateManifest(id);
 	}
 
 	@DeleteMapping("/{id}")
