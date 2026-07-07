@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.fleet.fleet_management.dto.ManifestResponse;
 import com.fleet.fleet_management.entity.DeliveryStatus;
 import com.fleet.fleet_management.entity.DeliveryTask;
+import com.fleet.fleet_management.exception.ResourceNotFoundException;
 import com.fleet.fleet_management.repository.DeliveryTaskRepository;
 
 @Service
@@ -39,16 +40,12 @@ public class DeliveryTaskService {
 	// Dispatch Task
 	public DeliveryTask dispatchTask(Long id) {
 
-		DeliveryTask task = repository.findById(id).orElse(null);
+		DeliveryTask task = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
 
-		if (task != null) {
+		task.setDeliveryStatus(DeliveryStatus.DISPATCHED);
 
-			task.setDeliveryStatus(DeliveryStatus.DISPATCHED);
-
-			return repository.save(task);
-		}
-
-		return null;
+		return repository.save(task);
 	}
 
 	// Mark In Transit

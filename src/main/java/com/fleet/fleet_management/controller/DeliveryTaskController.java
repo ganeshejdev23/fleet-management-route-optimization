@@ -15,6 +15,8 @@ import com.fleet.fleet_management.dto.ManifestResponse;
 import com.fleet.fleet_management.entity.DeliveryTask;
 import com.fleet.fleet_management.service.DeliveryTaskService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/tasks")
 public class DeliveryTaskController {
@@ -27,7 +29,7 @@ public class DeliveryTaskController {
 	}
 
 	@PostMapping
-	public DeliveryTask createTask(@RequestBody DeliveryTask task) {
+	public DeliveryTask createTask(@Valid @RequestBody DeliveryTask task) {
 
 		return service.saveTask(task);
 	}

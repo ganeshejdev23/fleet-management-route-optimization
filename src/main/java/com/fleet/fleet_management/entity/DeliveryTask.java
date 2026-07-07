@@ -1,6 +1,15 @@
 package com.fleet.fleet_management.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "delivery_tasks")
@@ -10,10 +19,13 @@ public class DeliveryTask {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank(message = "Pickup Location is required")
 	private String pickupLocation;
 
+	@NotBlank(message = "Drop Location is required")
 	private String dropLocation;
 
+	@NotBlank(message = "Priority is required")
 	private String priority;
 
 	@Enumerated(EnumType.STRING)

@@ -288,3 +288,25 @@ Successfully generated delivery manifests through Swagger.
 ### Result
 
 Dispatchers can retrieve a complete delivery manifest for any delivery task.
+
+## Week 3 - Day 4 Completed
+
+### Global Exception Handling
+
+Implemented centralized exception handling and request validation.
+
+### Features
+
+- Created ResourceNotFoundException
+- Implemented GlobalExceptionHandler
+- Added validation to DeliveryTask
+- Improved API error responses
+
+### Testing
+
+- Verified validation errors
+- Verified Resource Not Found handling
+
+### Result
+
+The application now returns meaningful error messages and validates incoming requests.
