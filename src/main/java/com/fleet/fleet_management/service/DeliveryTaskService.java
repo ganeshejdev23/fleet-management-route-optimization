@@ -16,25 +16,33 @@ public class DeliveryTaskService {
 	private final DeliveryTaskRepository repository;
 
 	public DeliveryTaskService(DeliveryTaskRepository repository) {
-
 		this.repository = repository;
 	}
 
+	// Save Task
 	public DeliveryTask saveTask(DeliveryTask task) {
-
 		return repository.save(task);
 	}
 
+	// Get All Tasks
 	public List<DeliveryTask> getAllTasks() {
 		return repository.findAll();
 	}
 
+	// Get Task By ID
 	public DeliveryTask getTaskById(Long id) {
-		return repository.findById(id).orElse(null);
+
+		return repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
 	}
 
+	// Delete Task
 	public void deleteTask(Long id) {
-		repository.deleteById(id);
+
+		DeliveryTask task = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
+
+		repository.delete(task);
 	}
 
 	// Dispatch Task
@@ -49,44 +57,32 @@ public class DeliveryTaskService {
 	}
 
 	// Mark In Transit
-
 	public DeliveryTask markInTransit(Long id) {
 
-		DeliveryTask task = repository.findById(id).orElse(null);
+		DeliveryTask task = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
 
-		if (task != null) {
+		task.setDeliveryStatus(DeliveryStatus.IN_TRANSIT);
 
-			task.setDeliveryStatus(DeliveryStatus.IN_TRANSIT);
-
-			return repository.save(task);
-		}
-
-		return null;
+		return repository.save(task);
 	}
 
 	// Mark Delivered
-
 	public DeliveryTask markDelivered(Long id) {
 
-		DeliveryTask task = repository.findById(id).orElse(null);
+		DeliveryTask task = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
 
-		if (task != null) {
+		task.setDeliveryStatus(DeliveryStatus.DELIVERED);
 
-			task.setDeliveryStatus(DeliveryStatus.DELIVERED);
-
-			return repository.save(task);
-		}
-
-		return null;
+		return repository.save(task);
 	}
 
+	// Generate Delivery Manifest
 	public ManifestResponse generateManifest(Long id) {
 
-		DeliveryTask task = repository.findById(id).orElse(null);
-
-		if (task == null) {
-			return null;
-		}
+		DeliveryTask task = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Delivery Task not found with id: " + id));
 
 		ManifestResponse response = new ManifestResponse();
 
@@ -99,11 +95,9 @@ public class DeliveryTaskService {
 		if (task.getAssignedVehicle() != null) {
 
 			response.setVehicleNumber(task.getAssignedVehicle().getVehicleNumber());
-
 			response.setVehicleCapacity(task.getAssignedVehicle().getCapacity());
 
 			if (task.getAssignedVehicle().getAssignedDriver() != null) {
-
 				response.setDriverName(task.getAssignedVehicle().getAssignedDriver().getName());
 			}
 		}
