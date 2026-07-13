@@ -335,3 +335,33 @@ Successfully tested all APIs using Swagger.
 
 The Fleet Management backend is stable, well-structured, and ready for implementing authentication and authorization in
  Week 4.
+ 
+## Week 4 - Day 1 Completed
+
+### Authentication Setup
+
+Implemented the initial authentication module for the Fleet Management application.
+
+### Features
+
+- Added Spring Security dependencies
+- Added JWT libraries
+- Created User entity
+- Created UserRepository
+- Implemented UserService
+- Configured BCrypt password encoder
+
+### Result
+
+The project is now prepared for implementing JWT authentication and login functionality. 
+
+### Swagger Documentation
+
+- Added @Tag annotations to all controllers
+- Added @Operation annotations to all APIs
+- Improved Swagger UI readability
+- Grouped APIs by module
+
+### Result
+
+Swagger now provides clear, categorized API documentation suitable for development and project demonstrations.
