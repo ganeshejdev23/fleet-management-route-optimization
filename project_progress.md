@@ -365,3 +365,27 @@ The project is now prepared for implementing JWT authentication and login functi
 ### Result
 
 Swagger now provides clear, categorized API documentation suitable for development and project demonstrations.
+
+## Week 4 - Day 2 Completed
+
+### Docker Containerization
+
+Successfully containerized the Fleet Management application using Docker.
+
+### Features
+
+- Created Dockerfile
+- Built Spring Boot executable JAR
+- Built Docker image
+- Configured Docker networking
+- Successfully ran the application inside a Docker container
+
+### Testing
+
+- Verified Docker image creation
+- Verified container startup
+- Verified application accessibility on port 8081
+
+### Result
+
+The Fleet Management application is successfully containerized and can be deployed consistently across different environments.
