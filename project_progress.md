@@ -389,28 +389,3 @@ Successfully containerized the Fleet Management application using Docker.
 ### Result
 
 The Fleet Management application is successfully containerized and can be deployed consistently across different environments.
-
-## Week 4 - Day 3 Completed
-
-### React Frontend Development
-
-Developed the initial React frontend for the Fleet Management application and connected it to the Spring Boot REST APIs.
-
-### Features
-
-- Created React application using Create React App
-- Installed Bootstrap, Axios, and React Router
-- Designed Fleet Management Dashboard
-- Connected Dashboard to Spring Boot APIs
-- Displayed live counts for Drivers, Vehicles, Routes, and Delivery Tasks
-- Configured CORS for frontend-backend communication
-
-### Testing
-
-- Verified React application on http://localhost:3000
-- Successfully fetched live data from backend APIs
-- Confirmed Dashboard updates dynamically based on database records
-
-### Result
-
-The frontend is successfully integrated with the Spring Boot backend and provides a live dashboard displaying fleet statistics.
