@@ -2,6 +2,7 @@ package com.fleet.fleet_management.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,8 +50,8 @@ public class DriverController {
 
 	@Operation(summary = "Delete driver by ID")
 	@DeleteMapping("/{id}")
-	public void deleteDriver(@PathVariable Long id) {
-
-		driverService.deleteDriver(id);
+	public ResponseEntity<String> deleteDriver(@PathVariable Long id) {
+	    driverService.deleteDriver(id);
+	    return ResponseEntity.ok("Driver deleted successfully");
 	}
 }

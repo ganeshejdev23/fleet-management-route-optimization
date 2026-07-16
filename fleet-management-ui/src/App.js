@@ -7,6 +7,7 @@ import DriverPage from "./pages/DriverPage";
 import VehiclePage from "./pages/VehiclePage";
 import RoutePage from "./pages/RoutePage";
 import DeliveryPage from "./pages/DeliveryPage";
+import AddDriver from "./pages/AddDriver";
 
 function App() {
 
@@ -22,11 +23,14 @@ function App() {
 
                 <Route path="/drivers" element={<DriverPage />} />
 
+                <Route path="/drivers/add" element={<AddDriver/>}/>
+
                 <Route path="/vehicles" element={<VehiclePage />} />
 
                 <Route path="/routes" element={<RoutePage />} />
 
                 <Route path="/tasks" element={<DeliveryPage />} />
+
 
             </Routes>
 
