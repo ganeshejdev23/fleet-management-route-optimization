@@ -414,3 +414,108 @@ Developed the initial React frontend for the Fleet Management application and co
 ### Result
 
 The frontend is successfully integrated with the Spring Boot backend and provides a live dashboard displaying fleet statistics.
+
+# Week 4 - Day 4
+
+## Objective
+Develop the Driver Management module in the React frontend and integrate it with the Spring Boot REST APIs.
+
+---
+
+## Tasks Completed
+
+### Driver Dashboard
+- Connected the React application with the Spring Boot backend.
+- Verified API communication using Axios.
+- Configured reusable API service classes.
+
+### Driver Management
+- Implemented Driver List page.
+- Retrieved driver records from the backend using REST API.
+- Displayed driver information in a Bootstrap table.
+- Added navigation from Dashboard to Driver Management.
+
+### Add Driver
+- Created Add Driver page.
+- Implemented controlled React form using useState.
+- Connected form submission with Spring Boot POST API.
+- Added automatic redirection back to Driver List after successful insertion.
+
+### Delete Driver
+- Added Delete button for each driver.
+- Integrated DELETE REST API.
+- Implemented confirmation dialog before deletion.
+- Investigated deletion failure.
+
+### Database Validation
+- Identified foreign key constraint preventing deletion of assigned drivers.
+- Verified Driver-Vehicle relationship in MySQL.
+- Learned that a driver cannot be deleted while assigned to a vehicle.
+- Planned validation logic to display a user-friendly message before deletion.
+
+### Vehicle Data Validation
+- Added unique constraint for vehicle_number.
+- Removed duplicate vehicle numbers from the database.
+- Ensured vehicle numbers remain unique across the system.
+
+### Testing
+- Successfully tested:
+  - View Drivers
+  - Add Driver
+  - Dashboard statistics
+  - Backend API integration
+  - Swagger API endpoints
+- Verified React frontend communication with Spring Boot backend.
+
+---
+
+## Technologies Used
+
+- Java 21
+- Spring Boot 3.5
+- Spring Data JPA
+- MySQL
+- React.js
+- React Router
+- Axios
+- Bootstrap
+- Swagger OpenAPI
+- Git
+- Docker
+
+---
+
+## Challenges Faced
+
+- React routing configuration.
+- Axios API integration.
+- Driver deletion blocked due to foreign key constraints.
+- Duplicate vehicle numbers in the database.
+
+---
+
+## Solutions Implemented
+
+- Fixed React Router navigation.
+- Configured reusable Axios API layer.
+- Identified and analyzed database foreign key relationships.
+- Applied unique constraint for vehicle numbers.
+- Planned business validation before driver deletion.
+
+---
+
+## Outcome
+
+Successfully completed the Driver Management module with:
+
+- Driver Listing
+- Add Driver
+- React Navigation
+- REST API Integration
+- Backend Communication
+- Database Validation
+- Delete Operation (business rule identified and validated)
+
+The frontend and backend are now fully integrated for Driver Management, providing a functional CRUD workflow with proper database relationship handling.
+
+---
