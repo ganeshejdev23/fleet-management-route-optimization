@@ -25,10 +25,23 @@ public class DriverService {
 	}
 
 	public Driver getDriverById(Long id) {
-		return driverRepository.findById(id).orElse(null);
+		return driverRepository.findById(id).orElseThrow(() -> new RuntimeException("Driver not found"));
 	}
 
 	public void deleteDriver(Long id) {
 		driverRepository.deleteById(id);
+	}
+
+	public Driver updateDriver(Long id, Driver updatedDriver) {
+
+		Driver driver = driverRepository.findById(id).orElseThrow(() -> new RuntimeException("Driver not found"));
+
+		driver.setName(updatedDriver.getName());
+		driver.setLicenseNumber(updatedDriver.getLicenseNumber());
+		driver.setPhone(updatedDriver.getPhone());
+		driver.setShiftHours(updatedDriver.getShiftHours());
+		driver.setStatus(updatedDriver.getStatus());
+
+		return driverRepository.save(driver);
 	}
 }

@@ -8,6 +8,7 @@ import VehiclePage from "./pages/VehiclePage";
 import RoutePage from "./pages/RoutePage";
 import DeliveryPage from "./pages/DeliveryPage";
 import AddDriver from "./pages/AddDriver";
+import EditDriver from "./pages/EditDriver";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
 
                 <Route path="/tasks" element={<DeliveryPage />} />
 
+                <Route path="/drivers/edit/:id" element={<EditDriver />} />
 
             </Routes>
 

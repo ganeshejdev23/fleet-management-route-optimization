@@ -83,6 +83,13 @@ function DriverPage() {
                                 <td>{driver.status}</td>
                                 <td>
                                     <button
+                                        className="btn btn-warning btn-sm me-2"
+                                        onClick={() => navigate(`/drivers/edit/${driver.id}`)}
+                                    >
+                                        Edit
+                                    </button>
+
+                                    <button
                                         className="btn btn-danger btn-sm"
                                         onClick={() => removeDriver(driver.id)}
                                     >
