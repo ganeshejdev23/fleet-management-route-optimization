@@ -573,3 +573,143 @@ Complete the Driver Management module by implementing full CRUD operations and i
 ## Outcome
 
 Successfully completed the Driver Management module with full CRUD functionality. The React frontend is fully integrated with the Spring Boot backend, allowing users to create, view, update and delete driver records through a responsive user interface.
+
+## JWT Authentication & Role-Based Access Control
+
+### Completed Tasks
+
+- Implemented Spring Security.
+- Added JWT Authentication.
+- Created User Registration API.
+- Created User Login API.
+- Implemented BCrypt password encryption.
+- Generated and validated JWT tokens.
+- Added JwtFilter for authentication.
+- Implemented CustomUserDetailsService.
+- Configured stateless session management.
+- Enabled method-level security using @EnableMethodSecurity.
+- Applied @PreAuthorize annotations to secure REST APIs.
+- Implemented Role-Based Access Control (RBAC).
+
+### Roles
+
+- ADMIN
+- DISPATCHER
+- DRIVER
+
+### Secured Modules
+
+- Driver Management
+- Vehicle Management
+- Route Management
+- Delivery Task Management
+
+### Result
+
+Users can access APIs only according to their assigned roles. Unauthorized requests are rejected by Spring Security.
+
+Procedure to Run the Project
+
+Include this section in your project README or documentation.
+
+Prerequisites
+Java 21
+Maven 3.9+
+MySQL 8
+Eclipse/VS Code
+Postman or Swagger UI
+Step 1: Create Database
+CREATE DATABASE fleet_management;
+Step 2: Configure Database
+
+Update application.properties:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/fleet_management
+spring.datasource.username=root
+spring.datasource.password=your_password
+Step 3: Build Project
+mvn clean install
+Step 4: Run Application
+mvn spring-boot:run
+
+or run the main class:
+
+FleetManagementApplication.java
+Step 5: Open Swagger
+http://localhost:8081/swagger-ui/index.html
+Step 6: Register a User
+
+Use:
+
+POST /auth/register
+
+Example:
+
+{
+  "username": "admin",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+Step 7: Login
+POST /auth/login
+
+Example:
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+Response:
+
+{
+  "token": "eyJhbGc..."
+}
+Step 8: Authorize in Swagger
+
+Click Authorize.
+
+Enter:
+
+Bearer <JWT_TOKEN>
+
+Example:
+
+Bearer eyJhbGc...
+
+Click Authorize.
+
+Step 9: Test Protected APIs
+
+Use the authenticated token to access secured endpoints based on the user's role.
+
+Security Flow
+Register User
+      │
+      ▼
+Password Encrypted (BCrypt)
+      │
+      ▼
+Login
+      │
+      ▼
+JWT Token Generated
+      │
+      ▼
+Client Stores Token
+      │
+      ▼
+Authorization Header
+Bearer <token>
+      │
+      ▼
+JwtFilter Validates Token
+      │
+      ▼
+Spring Security Authenticates User
+      │
+      ▼
+@PreAuthorize Checks Role
+      │
+      ▼
+Access Granted / 403 Forbidden

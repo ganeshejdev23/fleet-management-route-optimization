@@ -2,6 +2,7 @@ package com.fleet.fleet_management.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ public class RouteController {
 
 	@Operation(summary = "Create route")
 	@PostMapping
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER')")
 	public Route createRoute(@RequestBody Route route) {
 
 		return routeService.saveRoute(route);
@@ -37,27 +39,29 @@ public class RouteController {
 
 	@Operation(summary = "Get all routes")
 	@GetMapping
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER','DRIVER')")
 	public List<Route> getAllRoutes() {
 		return routeService.getAllRoutes();
 	}
 
 	@Operation(summary = "Get route by ID")
 	@GetMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER','DRIVER')")
 	public Route getRouteById(@PathVariable Long id) {
-
 		return routeService.getRouteById(id);
 	}
 
 	@Operation(summary = "Delete route")
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void deleteRoute(@PathVariable Long id) {
 		routeService.deleteRoute(id);
 	}
 
 	@Operation(summary = "Assign route to vehicle")
 	@PostMapping("/assign")
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER')")
 	public Route assignRoute(@RequestBody Route route) {
-
 		return routeService.assignRoute(route);
 	}
 }

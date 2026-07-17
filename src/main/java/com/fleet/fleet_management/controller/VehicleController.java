@@ -2,6 +2,7 @@ package com.fleet.fleet_management.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ public class VehicleController {
 
 	@Operation(summary = "Create a new vehicle")
 	@PostMapping
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER')")
 	public Vehicle createVehicle(@RequestBody Vehicle vehicle) {
 
 		return vehicleService.saveVehicle(vehicle);
@@ -37,21 +39,22 @@ public class VehicleController {
 
 	@Operation(summary = "Get all vehicles")
 	@GetMapping
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER')")
 	public List<Vehicle> getAllVehicles() {
 		return vehicleService.getAllVehicles();
 	}
 
 	@Operation(summary = "Get vehicle by ID")
 	@GetMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER')")
 	public Vehicle getVehicleById(@PathVariable Long id) {
-
-		return vehicleService.getVehicleById(id);
+	    return vehicleService.getVehicleById(id);
 	}
 
 	@Operation(summary = "Delete vehicle by ID")
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void deleteVehicle(@PathVariable Long id) {
-
 		vehicleService.deleteVehicle(id);
 	}
 }

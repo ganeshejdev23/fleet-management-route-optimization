@@ -3,6 +3,7 @@ package com.fleet.fleet_management.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,25 +32,28 @@ public class DriverController {
 
 	@Operation(summary = "Create a new driver")
 	@PostMapping
+	@PreAuthorize("hasRole('ADMIN')")
 	public Driver createDriver(@RequestBody Driver driver) {
-
 		return driverService.saveDriver(driver);
 	}
 
 	@Operation(summary = "Get all drivers")
 	@GetMapping
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER','DRIVER')")
 	public List<Driver> getAllDrivers() {
 		return driverService.getAllDrivers();
 	}
 
 	@Operation(summary = "Get driver by ID")
 	@GetMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ADMIN','DISPATCHER','DRIVER')")
 	public Driver getDriverById(@PathVariable Long id) {
 		return driverService.getDriverById(id);
 	}
 
 	@Operation(summary = "Delete driver by ID")
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteDriver(@PathVariable Long id) {
 		driverService.deleteDriver(id);
 		return ResponseEntity.ok("Driver deleted successfully");
@@ -57,6 +61,7 @@ public class DriverController {
 
 	@Operation(summary = "Update driver")
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Driver updateDriver(@PathVariable Long id, @RequestBody Driver driver) {
 		return driverService.updateDriver(id, driver);
 	}
