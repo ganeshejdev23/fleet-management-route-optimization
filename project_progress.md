@@ -519,3 +519,57 @@ Successfully completed the Driver Management module with:
 The frontend and backend are now fully integrated for Driver Management, providing a functional CRUD workflow with proper database relationship handling.
 
 ---
+# Week 4 - Day 5
+
+## Objective
+Complete the Driver Management module by implementing full CRUD operations and integrating the React frontend with Spring Boot REST APIs.
+
+---
+
+## Tasks Completed
+
+### Driver Update Module
+- Implemented Update Driver REST API.
+- Implemented Get Driver By ID REST API.
+- Added service methods for retrieving and updating driver details.
+- Successfully tested update functionality using Swagger.
+
+### React Frontend
+- Added Edit button to the Driver List.
+- Configured React Router navigation for editing drivers.
+- Created Edit Driver page.
+- Retrieved driver details using Driver ID.
+- Pre-filled the edit form with existing driver information.
+- Implemented Update Driver functionality using Axios.
+- Redirected users back to Driver List after successful update.
+
+### Integration
+- Successfully integrated React frontend with Spring Boot backend.
+- Verified CRUD operations through REST APIs.
+- Tested Create, Read, Update and Delete operations successfully.
+
+### Testing
+- Tested Driver CRUD operations using both Swagger and React UI.
+- Verified database updates in MySQL.
+- Confirmed frontend-backend communication using Axios.
+
+---
+
+## Technologies Used
+
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- React.js
+- React Router
+- Axios
+- Bootstrap
+- Swagger OpenAPI
+- Git
+
+---
+
+## Outcome
+
+Successfully completed the Driver Management module with full CRUD functionality. The React frontend is fully integrated with the Spring Boot backend, allowing users to create, view, update and delete driver records through a responsive user interface.
